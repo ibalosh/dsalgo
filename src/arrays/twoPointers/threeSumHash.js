@@ -49,6 +49,9 @@ let threeSum = function(nums, target) {
 
       if (seen.has(complement)) {
         values.push([nums[i], nums[j], complement]);
+
+        // To avoid duplicates, iterate ahead. Since for loop will do one more increment
+        // stop on last found duplicate.
         while (nums[j] === nums[j+1]) j++;
       }
 
@@ -61,6 +64,7 @@ let threeSum = function(nums, target) {
 
   for (let i=0;i<nums.length;i++) {
     if (nums[i] > 0) continue;
+    // you want to skip duplicates for first value in triplet
     if (nums[i-1] === nums[i]) continue;
     twoSum(nums, i, target, values)
   }

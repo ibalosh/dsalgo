@@ -38,6 +38,7 @@
  * Space complexity: O(n)
  *
  * @param {number[]} nums
+ * @param {target} target number
  * @return {number[][]}
  */
 let threeSum = function(nums, target) {
@@ -46,6 +47,7 @@ let threeSum = function(nums, target) {
 
   for (let i=0;i<nums.length;i++) {
       if (nums[i] > 0) continue;
+      // you want to skip duplicates for first value in triplet
       if (nums[i] === nums[i-1]) continue;
       twoSum(nums, i, values);
   }
@@ -65,7 +67,8 @@ function twoSum(nums, i, values) {
       left++;
       right--;
 
-      while (nums[left] == nums[left-1])
+      // you want to skip duplicates for second value in triplet
+      while (nums[left] === nums[left-1])
         left++;
     } else if (sum < 0) {
       left++;
