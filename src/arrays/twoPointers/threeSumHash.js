@@ -63,7 +63,9 @@ let threeSum = function(nums, target) {
   let values = [];
 
   for (let i=0;i<nums.length;i++) {
-    if (nums[i] > 0) continue;
+    // if current number in sorted array is bigger than target
+    // you can't sum up values to target value
+    if (nums[i] > target) continue;
     // you want to skip duplicates for first value in triplet
     if (nums[i-1] === nums[i]) continue;
     twoSum(nums, i, target, values)
@@ -75,6 +77,9 @@ let threeSum = function(nums, target) {
 // -4, -1, -1, 0, 1, 2
 let nums = [-1,0,1,2,-1,-4];
 console.log(threeSum(nums, 0)); // [[-1,-1,2],[-1,0,1]]
+
+nums = [1,0,-1,0,-2,2];
+console.log(threeSum(nums, 0));
 
 nums = [0,1,1]
 console.log(threeSum(nums, 0)); // []
