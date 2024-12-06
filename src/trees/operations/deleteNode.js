@@ -2,7 +2,6 @@ import {printTree, TreeNode} from "../TreeNode.js";
 
 /**
  * Delete node value into Binary tree.
- *
  * https://www.geeksforgeeks.org/deletion-in-binary-search-tree/
  *
  * @param {TreeNode} node

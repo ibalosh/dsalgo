@@ -13,13 +13,19 @@ export function treeFromArray(arr) {
     let node = queue.shift();
 
     if (i < arr.length) {
-      node.left = new TreeNode(arr[i++]);
-      queue.push(node.left);
+      const element = arr[i++];
+      if (element !== null) {
+        node.left = new TreeNode(element);
+        queue.push(node.left);
+      }
     }
 
     if (i < arr.length) {
-      node.right = new TreeNode(arr[i++]);
-      queue.push(node.right);
+      const element = arr[i++];
+      if (element !== null) {
+        node.right = new TreeNode(element);
+        queue.push(node.right);
+      }
     }
   }
 
